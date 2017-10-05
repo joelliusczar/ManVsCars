@@ -4,20 +4,20 @@ string[] swords =  {"Knife","Broadsword","Katana","Cutlass"};
 foreach(string sword in swords)
 {
 #>
-	public partial class <#= sword #>: ISword
+public partial class <#= sword #>: ISword
+{
+	public void Slash(string target)
 	{
-		public void Slash(string target)
-		{
-			string formatStr = String.Format("<#= sword #> -> {0}",target);
-			<#= CodeGenUtil.GetOutputType("formatStr") #>;
-		}
-
-		public void Guard()
-		{	
-			string formatStr = "Guarded with <#= sword #>";
-			<#= CodeGenUtil.GetOutputType("formatStr") #>;
-		}
+		string formatStr = String.Format("<#= sword #> -> {0}",target);
+		<#= CodeGenUtil.GetOutputType("formatStr") #>;
 	}
+
+	public void Guard()
+	{	
+		string formatStr = "Guarded with <#= sword #>";
+		<#= CodeGenUtil.GetOutputType("formatStr") #>;
+	}
+}
 
 <#
 }
@@ -26,14 +26,14 @@ string[] spells = {"Firaga","Blizzaga","Thunderaga","Heal","Slow","Quicken"};
 foreach(string spell in spells)
 {
 #>
-	public partial class <#= spell #>:ISpell
+public partial class <#= spell #>:ISpell
+{
+	public void Cast(string target)
 	{
-		public void Cast(string target)
-		{
-			string formatStr = String.Format("Cast <#=spell#> on {0}",target);
-			<#= CodeGenUtil.GetOutputType("formatStr") #>;
-		}
+		string formatStr = String.Format("Cast <#=spell#> on {0}",target);
+		<#= CodeGenUtil.GetOutputType("formatStr") #>;
 	}
+}
 
 <#
 }
@@ -42,10 +42,10 @@ string[] armors = {"Kevlar","Bronze","Leather","Steel"};
 foreach(string armor in armors)
 {
 #>
-	public partial class <#=armor#>:IAmor
-	{
-		public int DefLvl {get; set;}
-	}
+public partial class <#=armor#>:IAmor
+{
+	public int DefLvl {get; set;}
+}
 
 <#
 }
@@ -55,14 +55,14 @@ string[] beasts = {"Hound","Tiger","Terrorsaur","Malmere"};
 foreach(string beast in beasts)
 {
 #>
-	public partial class <#=beast#>:IBeast
+public partial class <#=beast#>:IBeast
+{
+	public void Roar()
 	{
-		public void Roar()
-		{
-			string formatStr = "The <#=beast#> roars";
-			<#= CodeGenUtil.GetOutputType("formatStr")#>;
-		}
+		string formatStr = "The <#=beast#> roars";
+		<#= CodeGenUtil.GetOutputType("formatStr")#>;
 	}
+}
 
 <#
 }
@@ -70,20 +70,20 @@ string[] bombs = {"ProximityBomb","TimedBomb","RemoteBomb"};
 foreach(string bomb in bombs)
 {
 #>
-	public partial class <#=bomb#>:IBomb
+public partial class <#=bomb#>:IBomb
+{
+	public void Plant(string target)
 	{
-		public void Plant(string target)
-		{
-			string formatStr = String.Format("Planted <#=bomb#> by {0}",target);
-			<#= CodeGenUtil.GetOutputType("formatStr")#>;
-		}
-
-		public void Lob(string target)
-		{
-			string formatStr = String.Format("Lobbed <#=bomb#> at {0}",target);
-			<#=CodeGenUtil.GetOutputType("formatStr")#>;
-		}
+		string formatStr = String.Format("Planted <#=bomb#> by {0}",target);
+		<#= CodeGenUtil.GetOutputType("formatStr")#>;
 	}
+
+	public void Lob(string target)
+	{
+		string formatStr = String.Format("Lobbed <#=bomb#> at {0}",target);
+		<#=CodeGenUtil.GetOutputType("formatStr")#>;
+	}
+}
 
 <#
 }
@@ -92,14 +92,14 @@ string[] guns = {"Revolver","RocketLauncher","Shotgun","SniperRifle","LaserBeam"
 foreach(string gun in guns)
 {
 #>
-	public partial class <#=gun#>:IGun
+public partial class <#=gun#>:IGun
+{
+	public void Shoot(string target)
 	{
-		public void Shoot(string target)
-		{
-			string formatStr = String.Format("<#=gun#> -> {0}",target);
-			<#=CodeGenUtil.GetOutputType("formatStr")#>;
-		}
+		string formatStr = String.Format("<#=gun#> -> {0}",target);
+		<#=CodeGenUtil.GetOutputType("formatStr")#>;
 	}
+}
 
 <#
 }

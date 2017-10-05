@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManVsCars", "ManVsCars\ManV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmsJect", "ArmsJect\ArmsJect.csproj", "{5D0DF732-0261-4550-9B3B-0162BBE0213A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCConsole", "MVCConsole\MVCConsole.csproj", "{10C689F2-0D8D-46C0-B9AC-052063D060A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5D0DF732-0261-4550-9B3B-0162BBE0213A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D0DF732-0261-4550-9B3B-0162BBE0213A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D0DF732-0261-4550-9B3B-0162BBE0213A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C689F2-0D8D-46C0-B9AC-052063D060A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C689F2-0D8D-46C0-B9AC-052063D060A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C689F2-0D8D-46C0-B9AC-052063D060A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C689F2-0D8D-46C0-B9AC-052063D060A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
