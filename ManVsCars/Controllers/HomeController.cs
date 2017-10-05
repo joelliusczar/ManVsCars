@@ -13,5 +13,12 @@ namespace ManVsCars.Controllers
         {
             return "'Sup World!";
         }
+
+        [Route("Hello")]
+        [HttpGet]
+        public string Get()
+        {
+            return "Hello Hello";
+        }
     }
 }

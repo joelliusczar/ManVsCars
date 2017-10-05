@@ -30,7 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.TextTemplating.15.0, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Ninject, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.0\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -50,13 +49,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ImplementationGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="HumanArms\AmmoCache.cs" />
+    <Compile Include="HumanArms\ArmsModule.cs" />
+    <Compile Include="HumanArms\Dice.cs" />
     <Compile Include="HumanArms\IAmor.cs" />
     <Compile Include="HumanArms\IBeast.cs" />
     <Compile Include="HumanArms\IBomb.cs" />
+    <Compile Include="HumanArms\IBullet.cs" />
     <Compile Include="HumanArms\IGun.cs" />
     <Compile Include="HumanArms\IHumanTech.cs" />
+    <Compile Include="HumanArms\IMagicItem.cs" />
     <Compile Include="HumanArms\ISpell.cs" />
     <Compile Include="HumanArms\ISword.cs" />
+    <Compile Include="HumanArms\MysterySword.cs" />
     <Compile Include="ITech.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

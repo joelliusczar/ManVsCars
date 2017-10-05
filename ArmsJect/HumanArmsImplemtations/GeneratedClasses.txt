@@ -88,16 +88,52 @@ public partial class <#=bomb#>:IBomb
 <#
 }
 
-string[] guns = {"Revolver","RocketLauncher","Shotgun","SniperRifle","LaserBeam"};
+string[] guns = {"Revolver","Shotgun","SniperRifle","LaserBeam"};
 foreach(string gun in guns)
 {
 #>
 public partial class <#=gun#>:IGun
 {
+	private List<AmmoCache> bullets;
+
+	public <#=gun#>()
+	{
+		Console.WriteLine("No Ammo");
+	}
+
+	public <#=gun#>(IBullet bulletA,int quantityA)
+	{
+		bullets = new List<AmmoCache>();
+		bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+	}
+
+	public <#=gun#>(IBullet bulletA,int quantityA,IBullet bulletB,int quantityB)
+		:this(bulletA,quantityA)
+	{
+		bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
+	}
+
 	public void Shoot(string target)
 	{
 		string formatStr = String.Format("<#=gun#> -> {0}",target);
 		<#=CodeGenUtil.GetOutputType("formatStr")#>;
+	}
+}
+
+<#
+}
+
+string[] bullets = {"Lead","Fire","Poison","Silver","Explosive"};
+foreach(string bullet in bullets)
+{
+#>
+public partial class <#=bullet#>Bullet:IBullet
+{
+	public string BulletType {get; set;}
+
+	public <#=bullet#>Bullet()
+	{
+		this.BulletType = "<#=bullet#>";
 	}
 }
 
