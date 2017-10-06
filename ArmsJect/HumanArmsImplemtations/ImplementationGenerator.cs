@@ -222,7 +222,8 @@ public partial class RemoteBomb:IBomb
 
 public partial class Revolver:IGun
 {
-	private List<AmmoCache> bullets;
+	private List<AmmoCache> Bullets;
+	public AmmoCache CurrentBulletType {get; set; }
 
 	public Revolver()
 	{
@@ -231,26 +232,29 @@ public partial class Revolver:IGun
 
 	public Revolver(IBullet bulletA,int quantityA)
 	{
-		bullets = new List<AmmoCache>();
-		bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.Bullets = new List<AmmoCache>();
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.CurrentBulletType = this.Bullets[0];
 	}
 
 	public Revolver(IBullet bulletA,int quantityA,IBullet bulletB,int quantityB)
 		:this(bulletA,quantityA)
 	{
-		bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
 	}
 
 	public void Shoot(string target)
 	{
-		string formatStr = String.Format("Revolver -> {0}",target);
+		string b = this.CurrentBulletType?.AmmoType?.BulletType??"No Ammo";
+		string formatStr = String.Format("Revolver using {0}  -> {1}",b,target);
 		Console.WriteLine(formatStr);
 	}
 }
 
 public partial class Shotgun:IGun
 {
-	private List<AmmoCache> bullets;
+	private List<AmmoCache> Bullets;
+	public AmmoCache CurrentBulletType {get; set; }
 
 	public Shotgun()
 	{
@@ -259,26 +263,29 @@ public partial class Shotgun:IGun
 
 	public Shotgun(IBullet bulletA,int quantityA)
 	{
-		bullets = new List<AmmoCache>();
-		bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.Bullets = new List<AmmoCache>();
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.CurrentBulletType = this.Bullets[0];
 	}
 
 	public Shotgun(IBullet bulletA,int quantityA,IBullet bulletB,int quantityB)
 		:this(bulletA,quantityA)
 	{
-		bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
 	}
 
 	public void Shoot(string target)
 	{
-		string formatStr = String.Format("Shotgun -> {0}",target);
+		string b = this.CurrentBulletType?.AmmoType?.BulletType??"No Ammo";
+		string formatStr = String.Format("Shotgun using {0}  -> {1}",b,target);
 		Console.WriteLine(formatStr);
 	}
 }
 
 public partial class SniperRifle:IGun
 {
-	private List<AmmoCache> bullets;
+	private List<AmmoCache> Bullets;
+	public AmmoCache CurrentBulletType {get; set; }
 
 	public SniperRifle()
 	{
@@ -287,26 +294,29 @@ public partial class SniperRifle:IGun
 
 	public SniperRifle(IBullet bulletA,int quantityA)
 	{
-		bullets = new List<AmmoCache>();
-		bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.Bullets = new List<AmmoCache>();
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.CurrentBulletType = this.Bullets[0];
 	}
 
 	public SniperRifle(IBullet bulletA,int quantityA,IBullet bulletB,int quantityB)
 		:this(bulletA,quantityA)
 	{
-		bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
 	}
 
 	public void Shoot(string target)
 	{
-		string formatStr = String.Format("SniperRifle -> {0}",target);
+		string b = this.CurrentBulletType?.AmmoType?.BulletType??"No Ammo";
+		string formatStr = String.Format("SniperRifle using {0}  -> {1}",b,target);
 		Console.WriteLine(formatStr);
 	}
 }
 
 public partial class LaserBeam:IGun
 {
-	private List<AmmoCache> bullets;
+	private List<AmmoCache> Bullets;
+	public AmmoCache CurrentBulletType {get; set; }
 
 	public LaserBeam()
 	{
@@ -315,19 +325,21 @@ public partial class LaserBeam:IGun
 
 	public LaserBeam(IBullet bulletA,int quantityA)
 	{
-		bullets = new List<AmmoCache>();
-		bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.Bullets = new List<AmmoCache>();
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.CurrentBulletType = this.Bullets[0];
 	}
 
 	public LaserBeam(IBullet bulletA,int quantityA,IBullet bulletB,int quantityB)
 		:this(bulletA,quantityA)
 	{
-		bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
 	}
 
 	public void Shoot(string target)
 	{
-		string formatStr = String.Format("LaserBeam -> {0}",target);
+		string b = this.CurrentBulletType?.AmmoType?.BulletType??"No Ammo";
+		string formatStr = String.Format("LaserBeam using {0}  -> {1}",b,target);
 		Console.WriteLine(formatStr);
 	}
 }

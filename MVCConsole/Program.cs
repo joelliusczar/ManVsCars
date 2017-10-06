@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ArmsJect.HumanArms;
 using ArmsJect.HumanArmsImplemtations;
 using Ninject;
+using Ninject.Extensions.Conventions;
 
 namespace MVCConsole
 {
@@ -19,17 +20,37 @@ namespace MVCConsole
             IGun g = kernel.Get<IGun>();
             g.Shoot("Ork");
 
+            kernel.Bind<IBigProjectile>().To<Missle>();
+            kernel.Bind<ICannon>().To<Turret>();
+            //kernel.Bind<IStructure>().To<Tower>();
+
+            //IStructure structure = kernel.Get<IStructure>();
+
+            //structure.Defend("Mech");
+
+            kernel.Bind<IBullet>().To<ExplosiveBullet>();
+            kernel.Rebind<IGun>().ToConstructor<SniperRifle>(c => new SniperRifle(c.Inject<IBullet>(), 15));
+            kernel.Bind<IStructure>().ToConstructor<Tower>(c => new Tower(c.Inject<IGun>()));
+
+            IStructure structure = kernel.Get<IStructure>();
+
+            structure.Defend("Giant Lizard");
+
             kernel.Bind<ISword>().ToConstructor<MysterySword>(c => new MysterySword(c.Inject<bool>()));
 
             kernel.Bind<Dice>().ToSelf().InSingletonScope();
+
+            kernel.Bind(c => c.FromAssemblyContaining<ISpell>().SelectAllClasses().BindDefaultInterfaces());
+
+            var sp = kernel.GetAll<ISpell>();
 
             Dice d = kernel.Get<Dice>();
 
             Dice d2 = kernel.Get<Dice>();
 
-            ISword s = kernel.Get<ISword>(new Ninject.Parameters.ConstructorArgument("isEnergy", true));
+            //ISword s = kernel.Get<ISword>(new Ninject.Parameters.ConstructorArgument("isEnergy", true));
 
-            s.Slash("Pirate");
+            //s.Slash("Pirate");
 
             Console.ReadKey();
         }

@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.3.0\lib\net45\Ninject.dll</HintPath>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,14 +54,20 @@
     <Compile Include="HumanArms\Dice.cs" />
     <Compile Include="HumanArms\IAmor.cs" />
     <Compile Include="HumanArms\IBeast.cs" />
+    <Compile Include="HumanArms\IBigProjectile.cs" />
     <Compile Include="HumanArms\IBomb.cs" />
     <Compile Include="HumanArms\IBullet.cs" />
+    <Compile Include="HumanArms\ICannon.cs" />
     <Compile Include="HumanArms\IGun.cs" />
     <Compile Include="HumanArms\IHumanTech.cs" />
     <Compile Include="HumanArms\IMagicItem.cs" />
     <Compile Include="HumanArms\ISpell.cs" />
+    <Compile Include="HumanArms\IStructure.cs" />
     <Compile Include="HumanArms\ISword.cs" />
+    <Compile Include="HumanArms\Missle.cs" />
     <Compile Include="HumanArms\MysterySword.cs" />
+    <Compile Include="HumanArms\Tower.cs" />
+    <Compile Include="HumanArms\Turret.cs" />
     <Compile Include="ITech.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -94,7 +94,8 @@ foreach(string gun in guns)
 #>
 public partial class <#=gun#>:IGun
 {
-	private List<AmmoCache> bullets;
+	private List<AmmoCache> Bullets;
+	public AmmoCache CurrentBulletType {get; set; }
 
 	public <#=gun#>()
 	{
@@ -103,19 +104,21 @@ public partial class <#=gun#>:IGun
 
 	public <#=gun#>(IBullet bulletA,int quantityA)
 	{
-		bullets = new List<AmmoCache>();
-		bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.Bullets = new List<AmmoCache>();
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletA,Quantity = quantityA});
+		this.CurrentBulletType = this.Bullets[0];
 	}
 
 	public <#=gun#>(IBullet bulletA,int quantityA,IBullet bulletB,int quantityB)
 		:this(bulletA,quantityA)
 	{
-		bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
+		this.Bullets.Add(new AmmoCache(){AmmoType = bulletB,Quantity = quantityB});
 	}
 
 	public void Shoot(string target)
 	{
-		string formatStr = String.Format("<#=gun#> -> {0}",target);
+		string b = this.CurrentBulletType?.AmmoType?.BulletType??"No Ammo";
+		string formatStr = String.Format("<#=gun#> using {0}  -> {1}",b,target);
 		<#=CodeGenUtil.GetOutputType("formatStr")#>;
 	}
 }
